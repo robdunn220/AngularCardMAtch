@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Memory Game</title>
+   <script src="angular.js"></script>
+   <script src="memorygame.js"></script>
+   <link rel="stylesheet" href="style.css" media="screen" title="no title">
+ </head>
+ <body>
+   <div ng-app="myApp" ng-controller="my-controller">
+     <div class="row" ng-repeat="card in cards">
+       <img class="front" ng-show="card.open" ng-src="{{card.image}}"/>
+       <img class="background" ng-show="!card.open" ng-click="flip($index)" ng-src="{{card.back}}"/>
+     </div>
+   </div>
+ </body>
+</html>
