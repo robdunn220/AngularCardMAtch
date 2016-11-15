@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <meta charset="utf-8">
-   <title>Memory Game</title>
-   <script src="angular.js"></script>
-   <script src="memorygame.js"></script>
-   <link rel="stylesheet" href="style.css" media="screen" title="no title">
- </head>
- <body>
-   <div ng-app="myApp" ng-controller="my-controller">
-     <div class="row" ng-repeat="card in cards">
-       <img class="front" ng-show="card.open" ng-src="{{card.image}}"/>
-       <img class="background" ng-show="!card.open" ng-click="flip($index)" ng-src="{{card.back}}"/>
-     </div>
-   </div>
- </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <script src="angular.js"></script>
+    <script src="memorygame.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="my-controller">
+      <div class="board-setup" ng-show="table_setup">
+        <h1>Test Your Memory!</h1>
+        <h3>How many memory cells would you like?</h3>
+        <button type="button"  ng-click="tableCreator(8)" >8 Cells</button>
+        <button type="button"  ng-click="tableCreator(16)" >16 Cells</button>
+        <button type="button"  ng-click="tableCreator(32)" >32 Cells</button>
+      </div>
+      <div class="table-8-cell" ng-show="cell_8">
+        <div class="row" ng-repeat="card in cards track by $index">
+          <img class="front" ng-show="card.open" ng-src="{{card.image}}"/>
+          <img class="background" ng-show="!card.open" ng-click="flip($index)" ng-src="{{card.back}}"/>
+        </div>
+      </div>
+      <div class="table-16-cell" ng-show="cell_16">
+        <div class="row" ng-repeat="card in cards track by $index">
+          <img class="front" ng-show="card.open" ng-src="{{card.image}}"/>
+          <img class="background" ng-show="!card.open" ng-click="flip($index)" ng-src="{{card.back}}"/>
+        </div>
+        <!-- <button type="button" name="new"></button> -->
+      </div>
+      <div class="table-32-cell" ng-show="cell_32">
+        <div class="row" ng-repeat="card in cards track by $index">
+          <img class="front" ng-show="card.open" ng-src="{{card.image}}"/>
+          <img class="background" ng-show="!card.open" ng-click="flip($index)" ng-src="{{card.back}}"/>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
